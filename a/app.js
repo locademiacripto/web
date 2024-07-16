@@ -20,6 +20,7 @@ function displayArbitrageOpportunities(data) {
     resultsDiv.innerHTML = '';
 
     if (opportunities.length > 0) {
+        opportunities.sort((a, b) => b.profit - a.profit); // Ordenar por mayor ganancia
         opportunities.forEach(opp => {
             const button = document.createElement('div');
             button.className = 'arbitrage-button';
