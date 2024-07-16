@@ -1,10 +1,12 @@
 document.getElementById('findArbitrage').addEventListener('click', async () => {
     const crypto = document.getElementById('crypto').value;
-    const apiUrl = 'https://criptoya.com/api/btc/usd/0.5'; // Replace with the actual API URL
+    const apiUrl = 'https://criptoya.com/api/btc/usd/0.5'; // Reemplaza con la URL real de tu API
 
     try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        // Eliminar binancep2p de los datos
+        delete data.binancep2p;
         displayArbitrageOpportunities(data);
     } catch (error) {
         console.error('Error fetching data:', error);
