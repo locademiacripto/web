@@ -21,9 +21,22 @@ function displayArbitrageOpportunities(data) {
 
     if (opportunities.length > 0) {
         opportunities.forEach(opp => {
-            const div = document.createElement('div');
-            div.textContent = `Buy from ${opp.buyExchange} at ${opp.buyPrice} and sell to ${opp.sellExchange} at ${opp.sellPrice}. Profit: ${opp.profit}`;
-            resultsDiv.appendChild(div);
+            const button = document.createElement('div');
+            button.className = 'arbitrage-button';
+            button.innerHTML = `
+                <div>
+                    <span>Buy from:</span>
+                    <strong>${opp.buyExchange}</strong>
+                    <small>at ${opp.buyPrice.toFixed(2)}</small>
+                </div>
+                <div class="arrow">➡️</div>
+                <div>
+                    <span>Sell to:</span>
+                    <strong>${opp.sellExchange}</strong>
+                    <small>at ${opp.sellPrice.toFixed(2)}</small>
+                </div>
+            `;
+            resultsDiv.appendChild(button);
         });
     } else {
         resultsDiv.textContent = 'No arbitrage opportunities found.';
