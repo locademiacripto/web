@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificaciones</title>
+    <style>
+        #notification-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .notification {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            animation: fadeInOut 5s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            10% { opacity: 1; transform: translateY(0); }
+            90% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div id="notification-container"></div>
+    <script>
+        const messages = [
+            { name: "Pedro", message: "compró el plan PRO por $9.99" },
+            { name: "Mariana", message: "compró el plan PRO con 40% OFF" },
+            { name: "Rocío", message: "compró el plan PRO con 50% OFF" },
+            { name: "Rodrigo", message: "compró por $9.99" },
+        ];
+        function showNotification() {
+            const container = document.getElementById("notification-container");
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            const notification = document.createElement("div");
+            notification.className = "notification";
+            notification.textContent = `${randomMessage.name} ${randomMessage.message}`;
+            container.appendChild(notification);
+            setTimeout(() => notification.remove(), 5000);
+        }
+        setInterval(showNotification, 8000);
+    </script>
+</body>
+</html>
