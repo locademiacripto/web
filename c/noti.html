@@ -33,11 +33,22 @@
     <div id="notification-container"></div>
     <script>
         const messages = [
-            { name: "Pedro", message: "compró el plan PRO por $9.99" },
-            { name: "Mariana", message: "compró el plan PRO con 40% OFF" },
-            { name: "Rocío", message: "compró el plan PRO con 50% OFF" },
-            { name: "Rodrigo", message: "compró por $9.99" },
-        ];
+                    { name: "Pedro", message: "compró el plan PRO por $9.99" },
+                    { name: "Mariana", message: "compró el plan PRO con 40% OFF" },
+                    { name: "Rocío", message: "compró el plan PRO con 50% OFF" },
+                    { name: "Rodrigo", message: "compró por $9.99" },
+                    { name: "Carla", message: "aprovechó el descuento especial en el plan PRO" },
+                    { name: "Juan", message: "acaba de adquirir el plan EXPERTO" },
+                    { name: "Luisa", message: "activó el 2 años con 50% OFF" },
+                    { name: "Sofía", message: "acaba de suscribirse por $9.99 al mes" },
+                    { name: "Andrés", message: "adquirió el plan PRO por $9.99" },
+                    { name: "Camila", message: "obtuvo un 50% OFF en el plan PRO" },
+                    { name: "Diego", message: "aprovechó la promoción de 2 años" },
+                    { name: "Martín", message: "adquirió el plan anual con 40% OFF" },
+                    { name: "Valeria", message: "se suscribió al plan PRO por $9.99" },
+                    { name: "Lucas", message: "activó el plan EXPERTO" },
+                    { name: "Ana", message: "obtuvo un descuento especial en su plan PRO" }
+                ];
         function showNotification() {
             const container = document.getElementById("notification-container");
             const randomMessage = messages[Math.floor(Math.random() * messages.length)];
